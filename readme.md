@@ -6,7 +6,7 @@
 - 仕様書に近づけることを目標に、がんばりました。
 
 ## ③アプリのデプロイURL
-
+https://p0rururu-blip.github.io/html_mori_13/
 
 ## ④アプリのログイン用IDまたはPassword（ある場合）
 - ID/PW:　今回の課題ではありません。 
