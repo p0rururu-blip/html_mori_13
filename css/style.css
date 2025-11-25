@@ -1,0 +1,520 @@
+/* ここから下に記載していく */
+
+html {
+    scroll-padding-top: 124px;
+    scroll-behavior: smooth;
+    /* アンカーズレ問題は、この対応で解決しました。 */
+}
+
+body {
+    width: 1200px;
+    /* body{}で全体の幅を指定する。案外この方法を見つけるのに時間がかかりました */
+}
+
+header {
+    position: fixed;
+    width: 1200px;
+    top: 0;
+    z-index: 10000;
+    /* 利便性を考え、ナビゲーションウインドーを上部固定にしました。
+    ただ、そうするとナビゲーションからのリンクが隠れてしまうので、移動位置を調整しています。 */
+}
+
+.header-logo {
+    background-color: white;
+    object-fit: none;
+    /* object-fitを解除しないと、ロゴが縦長になってしまいました。 */
+}
+
+.ue {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    /* 最初のころに書いたので、だいぶ雑かもしれないですが。左上と右上を左右に分けたくてこの方法をとりました。 */
+}
+
+.migiue {
+    display: flex;
+    /* このころはclassの決め方が適当ですね。 */
+}
+
+a {
+    text-decoration: none;
+    color: #222222;
+    /* a を指定したらリンクの色になってしまったので、補正。 */
+}
+
+
+.migiue1 {
+    font-size: 21px;
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 50px;
+    /* 右上のメニューはマージンで調整しました。 */
+}
+
+#container {
+    padding-top: 121px;
+}
+
+.mainbg {
+    position: relative;
+    margin-bottom: 60px;
+    /* 地味に一番苦労したのがこの辺です。positionの制御がわかりづらかったです。下の項目との幅を指定するのは都度マージンでやるのが正しいのか甚だ疑問 */
+}
+
+.mainbgtxt {
+    position: absolute;
+    white-space: nowrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* とりあえず参考となるサイトからコピペして試しました。 */
+}
+
+.txt01 {
+    font-size: 42px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    /* １行ごとにclassを指定して、文字のサイズを変える作戦 */
+}
+
+.txt02 {
+    font-size: 30px;
+    /* 改行幅の指定がこの方法でよいのかは疑問ですが、、、指定はちゃんと効いているようなので。 */
+}
+
+.txt03 {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+#about {
+    text-align: center;
+    font-size: 24px;
+    color: #ffd61a;
+    margin-bottom: 30px;
+    /* この辺でclass指定だとaから飛べないことに気づき、idを使用することに */
+}
+
+.title {
+    text-align: center;
+    font-size: 18px;
+    color: #222222;
+    margin-bottom: 60px;
+}
+
+.honbun {
+    text-align: center;
+    font-size: 16px;
+    color: #222222;
+    margin-bottom: 40px;
+    line-height: 30px;
+    /* なんとなくすべての行をdivで分けてみたけど、あまり意味がなかったかも。 */
+}
+
+.aboutimg {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    /* 前後の要素との間隔は一つずつ手打ちしていました。もっと良い方法があったのかな。 */
+}
+
+@keyframes infinitabout-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.infinitabout-wrap {
+    display: flex;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    /* 細かい仕組みまではわからなかったが、とりあえず見様見真似でコピペ。いくつか調整して回してみた。 */
+}
+
+.infinitabout-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.infinitabout-list-left {
+    animation: infinitabout-left 60s infinite linear 0.5s both;
+}
+
+.infinitaboutitems {
+    width: calc(100vw / 4);
+}
+
+.infinitaboutitems>img {
+    width: 100%;
+}
+
+#course {
+    text-align: center;
+    font-size: 24px;
+    color: #222222;
+    margin-bottom: 30px;
+    /* なぜか途中までcourceと書いていて、aから飛べないことで気づきました。恥ずかし。 */
+}
+
+.c-title {
+    margin-left: 50px;
+    font-size: 18px;
+    color: #222222;
+    margin-bottom: 40px;
+    /* この辺では、コースの説明文・タイトル文については共通の支持ができるのではないかと思ってまとめてみました。 */
+}
+
+.c2ul {
+    /* 個別にclass指定しなければならないと思い作りましたが、なくてもいけましたね。 */
+}
+
+.course00 {
+    display: flex;
+    flex-wrap: wrap;
+    /* 子要素を折り返す設定 */
+    /* いろいろな方法がありそうでしたが、1200px幅に対して折り返すことで実現してみました。 */
+    width: 1200px;
+    margin-bottom: 60px;
+}
+
+.course02 {
+    position: relative;
+    line-height: 30px;
+    width: 600px;
+    height: 405px;
+    background-color: #fafafa;
+    /* 最後まで苦戦したのがこの辺です。枠と文字を別の要素として作成し、position-relative/absoluteで指定することでとりあえず解決 */
+    /* ただ、heightの値は現物合わせになってしまったので、多分もっとやりようがある。 */
+}
+
+.c2content {
+    position: absolute;
+    white-space: nowrap;
+    top: 50%;
+    left: 50px;
+    transform: translate(0, -50%);
+    /* 苦労した点その１：上下位置を中央にすることができない。結構後半までmarginで調整してました。 */
+    /* ⇒これは上に書いたようにposition:absoluteを使用して、top・leftを指定することで解決。 */
+    /* 苦労した点その２：その１が解決したように見えましたが、leftを50%にすると左から50pxが解決できない。 */
+    /* ⇒leftを50pxに指定すると左側にはみ出すので、transform:translateの値を調整することで解決 */
+    /* 苦労した点その３：その２をやると文章が改行されてしまう。困った・・・・ */
+    /* そこで、:nowrap を指定することで、見本と同じ形になった・・・と思います。*/
+}
+
+.course03 {
+    position: relative;
+    line-height: 30px;
+    width: 600px;
+    height: 401px;
+    background-color: #fafafa;
+}
+
+.c3content {
+    position: absolute;
+    white-space: nowrap;
+    top: 50%;
+    right: 50px;
+    transform: translate(0, -50%);
+    /* ここも2行目の応用で乗り切りました。右から50pxを指定。 */
+}
+
+.course06 {
+    position: relative;
+    line-height: 30px;
+    width: 600px;
+    height: 405px;
+    background-color: #fafafa;
+}
+
+#news {
+    text-align: center;
+    font-size: 24px;
+    color: #ffd61a;
+    margin-bottom: 30px;
+}
+
+.newstxt {
+    text-align: center;
+    font-size: 16px;
+    color: #222222;
+    margin-bottom: 60px;
+    line-height: 30px;
+}
+
+.newswrap {
+    display: flex;
+    justify-content: center;
+    /* この辺から、wrapというワードを使い始める。親要素などに使うとわかりやすい、、、かも？ */
+}
+
+.newsitem {
+    display: block;
+    width: 300px;
+    margin: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    /* ホバーアクションはいろいろなものがあって、よくわからない。（いまだに） */
+    /* 見た目に面白いからいろいろ試してみましたが、、習うより慣れろ。考えるな、感じろ。 */
+    /* とりあえず、画面が少し大きくなるのが面白かったので、使ってみました。 */
+}
+
+.newsitem:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.itemtitle {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.itemtxt {
+    font-size: 14px;
+    line-height: 27px;
+}
+
+.more {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    /* ボタンを丸くしたのは、参考にしたサイトからコピペしたら丸くなったから。とはいえ、仕組みはわかったので応用はできそう。 */
+}
+
+.moretxt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    background-color: #ffd61a;
+    width: 300px;
+    height: 60px;
+    margin-bottom: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    border-radius: 20px;
+}
+
+.moretxt:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.preaccess {
+    background-color: #fafafa;
+    height: 60px;
+    /* ナビメニューからAccessへリンクを張ると、どうしてもAccessの背景色の上が指定されてしまい、
+    位置ずれを起こすことが課題でしたが、Accessの上に60pxの箱を置くことで解決。 */
+}
+
+.accesswrap {
+    background-color: #fafafa;
+}
+
+#access {
+    background-color: #fafafa;
+    text-align: center;
+}
+
+#accesstxt {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 24px;
+    color: #222222;
+}
+
+.chizu {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    /* 地図の枠をつけて、角を丸くしてみました。 */
+}
+
+
+.tableaccess {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    /* 文字のサイズについては、行間が30でセルの幅が50なので、その差の20かなぁ。 */
+    /* 事業所素材地の後に全角スペースを入れることで位置を調整。もっと良い方法あるんでは。 */
+}
+
+.tableaccess01 {
+    margin-bottom: 30px;
+    /* 下部余白については現物を見ながら調整。 */
+}
+
+table td {
+    height: 50px;
+}
+
+#contact {
+    text-align: center;
+    font-size: 24px;
+    color: #222222;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.setumei {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.contacttxt {
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 30px;
+}
+
+.contactng {
+    text-align: center;
+    margin-bottom: 70px;
+    line-height: 30px;
+}
+
+.contactform {
+    width: 640px;
+    margin: 0 auto;
+    /* フォームについては左右の罫線を外すところが地味に難しかった。全体とセルそれぞれ指示が必要だったようです。 */
+    /* フォームの書き方については、こちらのサイトを参照しました。https://zero-plus.io/media/make-a-form/ */
+}
+
+.contact-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-top: 4px solid #ccc;
+    border-bottom: 4px solid #ccc;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.contact-item,
+.contact-body {
+    text-align: left;
+    vertical-align: top;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 2px solid #ccc;
+}
+
+.contact-item {
+    text-align: left;
+    width: 240px;
+    padding-left: 16px;
+    border-left: 0px;
+}
+
+.contact-body {
+    width: 400px;
+    padding-left: 8px;
+    border-right: 0px;
+}
+
+.form-text {
+    width: 328px;
+    height: 36px;
+    border-color: #bfbfbf;
+}
+
+.kikkake {
+    margin-right: 64px;
+    margin-bottom: 8px;
+}
+
+.form-select {
+    width: 328px;
+    height: 36px;
+    border-color: #bfbfbf;
+}
+
+.contact-douki {
+    display: block;
+    font-size: 14px;
+
+}
+
+.contact-douki+.contact-douki {
+    margin-top: 24px;
+}
+
+.contact-douki-txt {
+    margin-left: 5px;
+}
+
+.shosai {
+    margin-top: 8px;
+}
+
+.form-textarea {
+    width: 328px;
+    height: 100px;
+    border-color: #bfbfbf;
+}
+
+
+.send {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 140px;
+}
+
+.sendtxt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    background-color: #ffd61a;
+    width: 300px;
+    height: 60px;
+    margin-bottom: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    border-radius: 20px;
+}
+
+.sendtxt:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.footerarea {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 1200px;
+    color: white;
+    background-color: #707070;
+}
